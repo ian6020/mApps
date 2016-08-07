@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'Hello' /}
+ 
+#{if plist}
+	From DB contacts<hr/>
+        
+	<form action="" method="GET">
+		#{list items:plist, as:'myList'}
+			<div class="list">
+				<span>Title</span>&nbsp;<input type="text" name="title" value=${myList.title} /><br>
+			    <span>Firstname</span>&nbsp;<input type="text" name="fname" value=${myList.fname} /><br>
+			    <span>Lastname</span>&nbsp;<input type="text" name="lname" value=${myList.lname} /><br>
+			    <span>Tag</span>&nbsp;<select>
+			    #{list items:myList.tags, as:'myTList'}
+			    	<option value=${myTList.name}>${myTList.name}</option>
+			    #{/list}
+			    </select>
+		    </div>
+		#{/list}
+	</form> 
+#{/if}
+
+ 
+<a href="@{Application.index()}">Back to form</a>
