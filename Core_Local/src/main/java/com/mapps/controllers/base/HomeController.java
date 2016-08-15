@@ -9,16 +9,15 @@ import com.mapps.utilities.Code;
 import com.mapps.utilities.Status;
 
 @RestController
-@RequestMapping("/login")
 public class HomeController {
 
-	@RequestMapping(produces="application/json")
+	@RequestMapping("/login")
 	public @ResponseBody ResponseStatus login(
 			@RequestParam String user, @RequestParam String password) {
 		return new ResponseStatus(Status.SUCCESS, Code.VALID, "Login successful");
 	}
 	
-	@RequestMapping(value="/signup", produces="application/json")
+	@RequestMapping(value="/signup")
 	public @ResponseBody ResponseStatus foo() {
 		return new ResponseStatus(Status.SUCCESS, Code.VALID, "Signup successful");
 	}
